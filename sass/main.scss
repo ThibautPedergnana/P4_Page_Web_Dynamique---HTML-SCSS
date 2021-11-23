@@ -207,4 +207,63 @@ h2 {
       }
     }
   }
+
+  /* MENUS */
+
+  .img_intro_section {
+    .img_restaurant {
+      width: 100%;
+    }
+  }
+  .menus_section {
+    background-color: $color-lighter-grey;
+    .menus_title {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0;
+      h1 {
+        margin: 20px 0 20px 12px;
+        font-size: 1.4em;
+      }
+      i {
+        align-self: center;
+        margin: 20px 20px 20px 12px;
+      }
+    }
+    .entrees,
+    .main_dish,
+    .desserts {
+      margin-top: 30px;
+      h2 {
+        width: 15%;
+        margin-left: 12px;
+        font-size: 0.9em;
+        border-bottom: 2px solid $color-tertiary;
+        padding-bottom: 5px;
+      }
+      .meal_choice {
+        width: 90%;
+        background-color: white;
+        border-radius: 15px;
+        margin: 0 0 10px 12px;
+        padding: 5px;
+        box-shadow: 0px 3px 6px $color-shadow;
+        h3 {
+          font-size: 1em;
+          margin: 0 0 5px 5px;
+        }
+        p {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1em;
+          margin: 0 0 5px 5px;
+        }
+        span {
+          font-size: 0.9em;
+          margin-right: 10px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

@@ -1,7 +1,26 @@
 @media (max-width: 768px) {
-  .main_logo {
-    text-align: center;
-    & img {
+  header {
+    display: flex;
+    .main_logo {
+      text-align: center;
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .menus_header {
+    display: flex;
+    a {
+      outline: none;
+      text-decoration: none;
+      color: black;
+      margin-left: 15px;
+    }
+    .main_logo {
+      padding-right: 15px;
+    }
+    img {
       width: 50%;
     }
   }

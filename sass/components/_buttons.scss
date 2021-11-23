@@ -8,4 +8,13 @@
     margin: 10px 0 40px 0;
     border-radius: 30px;
   }
+
+  .command_btn {
+    display: flex;
+    justify-content: center;
+    .main_btn--modifier {
+      padding: 10px 40px 10px 40px;
+      margin: 30px 0 60px 0;
+    }
+  }
 }

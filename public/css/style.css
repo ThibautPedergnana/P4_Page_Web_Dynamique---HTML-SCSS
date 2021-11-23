@@ -8,12 +8,40 @@
     margin: 10px 0 40px 0;
     border-radius: 30px;
   }
+
+  .command_btn {
+    display: flex;
+    justify-content: center;
+  }
+  .command_btn .main_btn--modifier {
+    padding: 10px 40px 10px 40px;
+    margin: 30px 0 60px 0;
+  }
 }
 @media (max-width: 768px) {
-  .main_logo {
+  header {
+    display: flex;
+  }
+  header .main_logo {
     text-align: center;
   }
-  .main_logo img {
+  header .main_logo img {
+    width: 50%;
+  }
+
+  .menus_header {
+    display: flex;
+  }
+  .menus_header a {
+    outline: none;
+    text-decoration: none;
+    color: black;
+    margin-left: 15px;
+  }
+  .menus_header .main_logo {
+    padding-right: 15px;
+  }
+  .menus_header img {
     width: 50%;
   }
 }
@@ -247,6 +275,73 @@ h2 {
     outline: none;
     text-decoration: none;
     color: white;
+  }
+
+  /* MENUS */
+  .img_intro_section .img_restaurant {
+    width: 100%;
+  }
+
+  .menus_section {
+    background-color: #f2f2f2;
+  }
+  .menus_section .menus_title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+  .menus_section .menus_title h1 {
+    margin: 20px 0 20px 12px;
+    font-size: 1.4em;
+  }
+  .menus_section .menus_title i {
+    align-self: center;
+    margin: 20px 20px 20px 12px;
+  }
+  .menus_section .entrees,
+.menus_section .main_dish,
+.menus_section .desserts {
+    margin-top: 30px;
+  }
+  .menus_section .entrees h2,
+.menus_section .main_dish h2,
+.menus_section .desserts h2 {
+    width: 15%;
+    margin-left: 12px;
+    font-size: 0.9em;
+    border-bottom: 2px solid #99e2d0;
+    padding-bottom: 5px;
+  }
+  .menus_section .entrees .meal_choice,
+.menus_section .main_dish .meal_choice,
+.menus_section .desserts .meal_choice {
+    width: 90%;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0 0 10px 12px;
+    padding: 5px;
+    box-shadow: 0px 3px 6px #cdcbcb;
+  }
+  .menus_section .entrees .meal_choice h3,
+.menus_section .main_dish .meal_choice h3,
+.menus_section .desserts .meal_choice h3 {
+    font-size: 1em;
+    margin: 0 0 5px 5px;
+  }
+  .menus_section .entrees .meal_choice p,
+.menus_section .main_dish .meal_choice p,
+.menus_section .desserts .meal_choice p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    margin: 0 0 5px 5px;
+  }
+  .menus_section .entrees .meal_choice span,
+.menus_section .main_dish .meal_choice span,
+.menus_section .desserts .meal_choice span {
+    font-size: 0.9em;
+    margin-right: 10px;
+    font-weight: bold;
   }
 }
 
