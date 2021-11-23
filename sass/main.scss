@@ -16,3 +16,195 @@
 @import "./pages/work";
 @import "./pages/about";
 @import "./pages/project";
+
+@font-face {
+  font-family: "Shrikhand";
+  src: url("public/police/Shrikhand-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("public/police/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: Roboto, Arial, Sans Serif;
+}
+h1,
+h2 {
+  font-family: Shrikhand, Arial, Sans Serif;
+}
+@media (max-width: 768px) {
+  #localisation_section {
+    background-color: $color-lighter-grey;
+    .main_description {
+      text-align: center;
+      h2 {
+        margin: 25px 45px 5px 45px;
+      }
+      p {
+        margin: 5px 20px 20px 20px;
+      }
+    }
+  }
+
+  #function_section {
+    margin-top: 50px;
+    .function {
+      margin-left: 12px;
+    }
+    h2 {
+      margin-left: 12px;
+    }
+    .step_1,
+    .step_2,
+    .step_3 {
+      background-color: $color-lighter-grey;
+      margin: 15px;
+      border-radius: 20px;
+      box-shadow: 0px 3px 6px $color-shadow;
+      a {
+        outline: none;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        &:hover {
+          background-color: lighten($color: $color-primary, $amount: 35%);
+          border-radius: 20px;
+          .phone_logo,
+          .list_logo,
+          .store_logo {
+            color: $color-primary;
+          }
+        }
+      }
+      span {
+        align-self: center;
+        height: 10%;
+        background-color: $color-primary;
+        color: white;
+        margin: 0 20px 0 -10px;
+        padding: 2px 6px 2px 6px;
+        border-radius: 15px;
+      }
+      p {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 20px;
+      }
+      .phone_logo,
+      .list_logo,
+      .store_logo {
+        display: flex;
+        align-items: center;
+        color: lighten(black, 40%);
+        width: 16px;
+      }
+    }
+  }
+  #restaurants_section {
+    background-color: $color-grey;
+    padding: 15px;
+    margin-top: 50px;
+    h2 {
+      margin: 40px 0 20px 12px;
+    }
+    .restaurants_chart {
+      background-color: white;
+      border-radius: 15px;
+      width: 100%;
+      max-height: 250px;
+      box-shadow: 0px 3px 6px $color-shadow;
+      .img_restaurant {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+      }
+      a {
+        outline: none;
+        text-decoration: none;
+        color: black;
+        &:visited {
+          outline: none;
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .chart_description {
+        display: flex;
+        margin: 0 0 20px 0;
+        h3 {
+          margin: 0;
+        }
+        p {
+          margin: 0;
+        }
+        .description_text {
+          width: 85%;
+          margin: 5px 0 10px 10px;
+        }
+        .logo_heart {
+          display: block;
+          align-self: center;
+          margin: 0 15px 15px 0;
+          font-size: 1.1em;
+          &:hover {
+            display: none;
+          }
+          &:active {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    background-color: darken($color-grey, 60%);
+    color: white;
+    .block_footer {
+      text-align: start;
+      margin: 0 0 0 15px;
+      .main_logo {
+        width: 40%;
+        margin: 30px 0 5px 0;
+      }
+      p {
+        margin: 10px 0 0 0;
+      }
+      .add_restaurant {
+        display: flex;
+        .ustensils {
+          display: flex;
+          width: 16px;
+          height: 16px;
+          align-self: center;
+          justify-content: center;
+          margin: 10px 10px 0 0;
+        }
+      }
+      .partnership {
+        display: flex;
+        .handshake {
+          display: flex;
+          width: 16px;
+          height: 16px;
+          align-self: center;
+          justify-content: center;
+          margin: 10px 10px 0 0;
+        }
+      }
+      .contact {
+        margin-top: 10px;
+        a {
+          outline: none;
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+}

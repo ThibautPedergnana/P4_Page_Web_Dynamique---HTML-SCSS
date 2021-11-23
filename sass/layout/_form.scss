@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  .search_form {
+    background-color: $color-grey;
+    form {
+      display: flex;
+      justify-content: center;
+      margin-left: 50px;
+      .localisation {
+        margin: 10px;
+      }
+      input {
+        border: none;
+        background-color: $color-grey;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+  .main_btn {
+    background: linear-gradient(165deg, $color-secondary, $color-primary);
+    font-size: 1.1em;
+    color: white;
+    border: none;
+    padding: 20px;
+    margin: 10px 0 40px 0;
+    border-radius: 30px;
+  }
+}
