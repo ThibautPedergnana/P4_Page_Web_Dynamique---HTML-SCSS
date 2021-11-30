@@ -1,20 +1,18 @@
-@media (max-width: 768px) {
-  .main_btn {
-    background: linear-gradient(165deg, $color-secondary, $color-primary);
-    font-size: 1.1em;
-    color: white;
-    border: none;
-    padding: 20px;
-    margin: 10px 0 40px 0;
-    border-radius: 30px;
-  }
+.main_btn {
+  background: linear-gradient(165deg, $color-secondary, $color-primary);
+  font-size: 1.1em;
+  color: white;
+  border: none;
+  padding: 20px;
+  margin: 10px 0 40px 0;
+  border-radius: 30px;
+}
 
-  .command_btn {
-    display: flex;
-    justify-content: center;
-    .main_btn--modifier {
-      padding: 10px 40px 10px 40px;
-      margin: 30px 0 60px 0;
-    }
+.command_btn {
+  display: flex;
+  justify-content: center;
+  .main_btn--modifier {
+    padding: 10px 40px 10px 40px;
+    margin: 0 0 60px 0;
   }
 }
