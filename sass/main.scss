@@ -159,16 +159,22 @@ h1 {
         width: 85%;
         margin: 5px 0 10px 10px;
       }
-      .logo_heart {
-        display: block;
-        align-self: center;
-        margin: 0 15px 15px 0;
-        font-size: 1.1em;
-        &:hover {
-          display: none;
-        }
-        &:active {
-          display: none;
+      .fill__heart {
+        display: flex;
+        align-items: center;
+        .logo_heart {
+          background-color: white;
+          border-radius: 50%;
+          padding: 0.2em;
+          font-weight: bold;
+          &::before {
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+          }
+          &:hover::before {
+            color: $color-primary;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -250,9 +256,23 @@ footer {
       margin: 20px 0 20px 0;
       font-size: 1.4em;
     }
-    i {
-      align-self: center;
-      margin: 20px 20px 20px 0;
+    .fill__heart {
+      display: flex;
+      align-items: center;
+      .logo_heart {
+        background-color: $color-lighter-grey;
+        border-radius: 50%;
+        padding: 0.2em;
+        font-weight: bold;
+        &::before {
+          font-weight: bold;
+          transition: color 0.3s ease-in-out;
+        }
+        &:hover::before {
+          color: $color-primary;
+          cursor: pointer;
+        }
+      }
     }
   }
   .entrees,
@@ -265,33 +285,122 @@ footer {
       border-bottom: 2px solid $color-tertiary;
       padding-bottom: 5px;
     }
-    .meal_choice {
-      background-color: white;
-      border-radius: 15px;
-      margin: 0 0 10px 0;
-      padding: 5px;
-      box-shadow: 0px 3px 6px $color-shadow;
-      h3 {
-        font-size: 1em;
-        margin: 0 0 5px 5px;
-      }
-      p {
+    .choices {
+      .meal_choice_1,
+      .meal_choice_2,
+      .meal_choice_3,
+      .meal_choice_4 {
         display: flex;
-        justify-content: space-between;
-        font-size: 1em;
-        margin: 0 0 5px 5px;
+        background-color: white;
+        border-radius: 15px;
+        margin: 0 0 10px 0;
+        padding: 0 0 0 5px;
+        box-shadow: 0px 3px 6px $color-shadow;
+        animation-name: choices;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        transition-duration: 1s;
+        position: relative;
+        opacity: 0;
+        &:hover {
+          .selected {
+            transform: scaleX(1);
+            width: 15%;
+            .check {
+              transform: scale(1);
+              animation: check_rotating 0.4s linear;
+              @keyframes check_rotating {
+                from {
+                  transform: rotate(00deg);
+                }
+                to {
+                  transform: rotate(360deg);
+                }
+              }
+            }
+          }
+        }
+        .selected {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 0%;
+          background-color: $color-tertiary;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          transform: scaleX(0);
+          transition: transform 0.5s ease;
+          transform-origin: 100% 50%;
+          .check {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $color-tertiary;
+            background-color: white;
+            max-width: 40%;
+            max-height: 40%;
+            border-radius: 15px;
+            transform: scale(0);
+            padding: 3px;
+          }
+        }
+        .description {
+          width: 100%;
+          margin-right: 0;
+          max-height: auto;
+          h3 {
+            font-size: 1em;
+            margin: 5px 0 5px 5px;
+          }
+          p {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1em;
+            margin: 0 0 5px 5px;
+            text-overflow: ellipsis;
+          }
+          span {
+            font-size: 0.9em;
+            margin-right: 10px;
+            font-weight: bold;
+          }
+        }
       }
-      span {
-        font-size: 0.9em;
-        margin-right: 10px;
-        font-weight: bold;
+
+      @keyframes choices {
+        from {
+          bottom: -30px;
+        }
+        to {
+          opacity: 1;
+          bottom: 0px;
+        }
+      }
+      .meal_choice_1 {
+        animation-delay: 0.1s;
+      }
+      .meal_choice_2 {
+        animation-delay: 0.3s;
+      }
+      .meal_choice_3 {
+        animation-delay: 0.5s;
+      }
+      .meal_choice_4 {
+        animation-delay: 0.7s;
       }
     }
   }
 }
 
-@media (min-width: 650px) and (max-width: 768px) {
+@media (min-width: 650px) {
+  #function_section {
+    text-align: center;
+  }
+
   #restaurants_section {
+    h2 {
+      text-align: center;
+    }
     .restaurants_chart {
       height: 250px;
       margin-bottom: 20px;
@@ -340,4 +449,7 @@ footer {
       }
     }
   }
+}
+
+@media (min-width: 650px) {
 }

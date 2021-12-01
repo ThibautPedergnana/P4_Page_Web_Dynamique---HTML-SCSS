@@ -6,6 +6,11 @@
   padding: 20px;
   margin: 10px 0 40px 0;
   border-radius: 30px;
+  box-shadow: 0px 5px 4px #cdcbcb;
+}
+.main_btn:hover {
+  box-shadow: 0px 5px 1px #cdcbcb;
+  filter: brightness(110%);
 }
 
 .command_btn {
@@ -15,6 +20,10 @@
 .command_btn .main_btn--modifier {
   padding: 10px 40px 10px 40px;
   margin: 0 0 60px 0;
+}
+.command_btn .main_btn--modifier:hover {
+  box-shadow: 0px 5px 1px #cdcbcb;
+  filter: brightness(110%);
 }
 
 header {
@@ -242,17 +251,23 @@ h1 {
   width: 85%;
   margin: 5px 0 10px 10px;
 }
-#restaurants_section .restaurants_chart .chart_description .logo_heart {
-  display: block;
-  align-self: center;
-  margin: 0 15px 15px 0;
-  font-size: 1.1em;
+#restaurants_section .restaurants_chart .chart_description .fill__heart {
+  display: flex;
+  align-items: center;
 }
-#restaurants_section .restaurants_chart .chart_description .logo_heart:hover {
-  display: none;
+#restaurants_section .restaurants_chart .chart_description .fill__heart .logo_heart {
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.2em;
+  font-weight: bold;
 }
-#restaurants_section .restaurants_chart .chart_description .logo_heart:active {
-  display: none;
+#restaurants_section .restaurants_chart .chart_description .fill__heart .logo_heart::before {
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+#restaurants_section .restaurants_chart .chart_description .fill__heart .logo_heart:hover::before {
+  color: #9356dc;
+  cursor: pointer;
 }
 
 footer {
@@ -328,9 +343,23 @@ footer .block_footer .contact a {
   margin: 20px 0 20px 0;
   font-size: 1.4em;
 }
-.menus_section .menus_title i {
-  align-self: center;
-  margin: 20px 20px 20px 0;
+.menus_section .menus_title .fill__heart {
+  display: flex;
+  align-items: center;
+}
+.menus_section .menus_title .fill__heart .logo_heart {
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  padding: 0.2em;
+  font-weight: bold;
+}
+.menus_section .menus_title .fill__heart .logo_heart::before {
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+.menus_section .menus_title .fill__heart .logo_heart:hover::before {
+  color: #9356dc;
+  cursor: pointer;
 }
 .menus_section .entrees,
 .menus_section .main_dish,
@@ -345,38 +374,218 @@ footer .block_footer .contact a {
   border-bottom: 2px solid #99e2d0;
   padding-bottom: 5px;
 }
-.menus_section .entrees .meal_choice,
-.menus_section .main_dish .meal_choice,
-.menus_section .desserts .meal_choice {
+.menus_section .entrees .choices .meal_choice_1,
+.menus_section .entrees .choices .meal_choice_2,
+.menus_section .entrees .choices .meal_choice_3,
+.menus_section .entrees .choices .meal_choice_4,
+.menus_section .main_dish .choices .meal_choice_1,
+.menus_section .main_dish .choices .meal_choice_2,
+.menus_section .main_dish .choices .meal_choice_3,
+.menus_section .main_dish .choices .meal_choice_4,
+.menus_section .desserts .choices .meal_choice_1,
+.menus_section .desserts .choices .meal_choice_2,
+.menus_section .desserts .choices .meal_choice_3,
+.menus_section .desserts .choices .meal_choice_4 {
+  display: flex;
   background-color: white;
   border-radius: 15px;
   margin: 0 0 10px 0;
-  padding: 5px;
+  padding: 0 0 0 5px;
   box-shadow: 0px 3px 6px #cdcbcb;
+  animation-name: choices;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  transition-duration: 1s;
+  position: relative;
+  opacity: 0;
 }
-.menus_section .entrees .meal_choice h3,
-.menus_section .main_dish .meal_choice h3,
-.menus_section .desserts .meal_choice h3 {
+.menus_section .entrees .choices .meal_choice_1:hover .selected,
+.menus_section .entrees .choices .meal_choice_2:hover .selected,
+.menus_section .entrees .choices .meal_choice_3:hover .selected,
+.menus_section .entrees .choices .meal_choice_4:hover .selected,
+.menus_section .main_dish .choices .meal_choice_1:hover .selected,
+.menus_section .main_dish .choices .meal_choice_2:hover .selected,
+.menus_section .main_dish .choices .meal_choice_3:hover .selected,
+.menus_section .main_dish .choices .meal_choice_4:hover .selected,
+.menus_section .desserts .choices .meal_choice_1:hover .selected,
+.menus_section .desserts .choices .meal_choice_2:hover .selected,
+.menus_section .desserts .choices .meal_choice_3:hover .selected,
+.menus_section .desserts .choices .meal_choice_4:hover .selected {
+  transform: scaleX(1);
+  width: 15%;
+}
+.menus_section .entrees .choices .meal_choice_1:hover .selected .check,
+.menus_section .entrees .choices .meal_choice_2:hover .selected .check,
+.menus_section .entrees .choices .meal_choice_3:hover .selected .check,
+.menus_section .entrees .choices .meal_choice_4:hover .selected .check,
+.menus_section .main_dish .choices .meal_choice_1:hover .selected .check,
+.menus_section .main_dish .choices .meal_choice_2:hover .selected .check,
+.menus_section .main_dish .choices .meal_choice_3:hover .selected .check,
+.menus_section .main_dish .choices .meal_choice_4:hover .selected .check,
+.menus_section .desserts .choices .meal_choice_1:hover .selected .check,
+.menus_section .desserts .choices .meal_choice_2:hover .selected .check,
+.menus_section .desserts .choices .meal_choice_3:hover .selected .check,
+.menus_section .desserts .choices .meal_choice_4:hover .selected .check {
+  transform: scale(1);
+  animation: check_rotating 0.4s linear;
+}
+@keyframes check_rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.menus_section .entrees .choices .meal_choice_1 .selected,
+.menus_section .entrees .choices .meal_choice_2 .selected,
+.menus_section .entrees .choices .meal_choice_3 .selected,
+.menus_section .entrees .choices .meal_choice_4 .selected,
+.menus_section .main_dish .choices .meal_choice_1 .selected,
+.menus_section .main_dish .choices .meal_choice_2 .selected,
+.menus_section .main_dish .choices .meal_choice_3 .selected,
+.menus_section .main_dish .choices .meal_choice_4 .selected,
+.menus_section .desserts .choices .meal_choice_1 .selected,
+.menus_section .desserts .choices .meal_choice_2 .selected,
+.menus_section .desserts .choices .meal_choice_3 .selected,
+.menus_section .desserts .choices .meal_choice_4 .selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0%;
+  background-color: #99e2d0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  transform-origin: 100% 50%;
+}
+.menus_section .entrees .choices .meal_choice_1 .selected .check,
+.menus_section .entrees .choices .meal_choice_2 .selected .check,
+.menus_section .entrees .choices .meal_choice_3 .selected .check,
+.menus_section .entrees .choices .meal_choice_4 .selected .check,
+.menus_section .main_dish .choices .meal_choice_1 .selected .check,
+.menus_section .main_dish .choices .meal_choice_2 .selected .check,
+.menus_section .main_dish .choices .meal_choice_3 .selected .check,
+.menus_section .main_dish .choices .meal_choice_4 .selected .check,
+.menus_section .desserts .choices .meal_choice_1 .selected .check,
+.menus_section .desserts .choices .meal_choice_2 .selected .check,
+.menus_section .desserts .choices .meal_choice_3 .selected .check,
+.menus_section .desserts .choices .meal_choice_4 .selected .check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #99e2d0;
+  background-color: white;
+  max-width: 40%;
+  max-height: 40%;
+  border-radius: 15px;
+  transform: scale(0);
+  padding: 3px;
+}
+.menus_section .entrees .choices .meal_choice_1 .description,
+.menus_section .entrees .choices .meal_choice_2 .description,
+.menus_section .entrees .choices .meal_choice_3 .description,
+.menus_section .entrees .choices .meal_choice_4 .description,
+.menus_section .main_dish .choices .meal_choice_1 .description,
+.menus_section .main_dish .choices .meal_choice_2 .description,
+.menus_section .main_dish .choices .meal_choice_3 .description,
+.menus_section .main_dish .choices .meal_choice_4 .description,
+.menus_section .desserts .choices .meal_choice_1 .description,
+.menus_section .desserts .choices .meal_choice_2 .description,
+.menus_section .desserts .choices .meal_choice_3 .description,
+.menus_section .desserts .choices .meal_choice_4 .description {
+  width: 100%;
+  margin-right: 0;
+  max-height: auto;
+}
+.menus_section .entrees .choices .meal_choice_1 .description h3,
+.menus_section .entrees .choices .meal_choice_2 .description h3,
+.menus_section .entrees .choices .meal_choice_3 .description h3,
+.menus_section .entrees .choices .meal_choice_4 .description h3,
+.menus_section .main_dish .choices .meal_choice_1 .description h3,
+.menus_section .main_dish .choices .meal_choice_2 .description h3,
+.menus_section .main_dish .choices .meal_choice_3 .description h3,
+.menus_section .main_dish .choices .meal_choice_4 .description h3,
+.menus_section .desserts .choices .meal_choice_1 .description h3,
+.menus_section .desserts .choices .meal_choice_2 .description h3,
+.menus_section .desserts .choices .meal_choice_3 .description h3,
+.menus_section .desserts .choices .meal_choice_4 .description h3 {
   font-size: 1em;
-  margin: 0 0 5px 5px;
+  margin: 5px 0 5px 5px;
 }
-.menus_section .entrees .meal_choice p,
-.menus_section .main_dish .meal_choice p,
-.menus_section .desserts .meal_choice p {
+.menus_section .entrees .choices .meal_choice_1 .description p,
+.menus_section .entrees .choices .meal_choice_2 .description p,
+.menus_section .entrees .choices .meal_choice_3 .description p,
+.menus_section .entrees .choices .meal_choice_4 .description p,
+.menus_section .main_dish .choices .meal_choice_1 .description p,
+.menus_section .main_dish .choices .meal_choice_2 .description p,
+.menus_section .main_dish .choices .meal_choice_3 .description p,
+.menus_section .main_dish .choices .meal_choice_4 .description p,
+.menus_section .desserts .choices .meal_choice_1 .description p,
+.menus_section .desserts .choices .meal_choice_2 .description p,
+.menus_section .desserts .choices .meal_choice_3 .description p,
+.menus_section .desserts .choices .meal_choice_4 .description p {
   display: flex;
   justify-content: space-between;
   font-size: 1em;
   margin: 0 0 5px 5px;
+  text-overflow: ellipsis;
 }
-.menus_section .entrees .meal_choice span,
-.menus_section .main_dish .meal_choice span,
-.menus_section .desserts .meal_choice span {
+.menus_section .entrees .choices .meal_choice_1 .description span,
+.menus_section .entrees .choices .meal_choice_2 .description span,
+.menus_section .entrees .choices .meal_choice_3 .description span,
+.menus_section .entrees .choices .meal_choice_4 .description span,
+.menus_section .main_dish .choices .meal_choice_1 .description span,
+.menus_section .main_dish .choices .meal_choice_2 .description span,
+.menus_section .main_dish .choices .meal_choice_3 .description span,
+.menus_section .main_dish .choices .meal_choice_4 .description span,
+.menus_section .desserts .choices .meal_choice_1 .description span,
+.menus_section .desserts .choices .meal_choice_2 .description span,
+.menus_section .desserts .choices .meal_choice_3 .description span,
+.menus_section .desserts .choices .meal_choice_4 .description span {
   font-size: 0.9em;
   margin-right: 10px;
   font-weight: bold;
 }
+@keyframes choices {
+  from {
+    bottom: -30px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+.menus_section .entrees .choices .meal_choice_1,
+.menus_section .main_dish .choices .meal_choice_1,
+.menus_section .desserts .choices .meal_choice_1 {
+  animation-delay: 0.1s;
+}
+.menus_section .entrees .choices .meal_choice_2,
+.menus_section .main_dish .choices .meal_choice_2,
+.menus_section .desserts .choices .meal_choice_2 {
+  animation-delay: 0.3s;
+}
+.menus_section .entrees .choices .meal_choice_3,
+.menus_section .main_dish .choices .meal_choice_3,
+.menus_section .desserts .choices .meal_choice_3 {
+  animation-delay: 0.5s;
+}
+.menus_section .entrees .choices .meal_choice_4,
+.menus_section .main_dish .choices .meal_choice_4,
+.menus_section .desserts .choices .meal_choice_4 {
+  animation-delay: 0.7s;
+}
 
-@media (min-width: 650px) and (max-width: 768px) {
+@media (min-width: 650px) {
+  #function_section {
+    text-align: center;
+  }
+
+  #restaurants_section h2 {
+    text-align: center;
+  }
   #restaurants_section .restaurants_chart {
     height: 250px;
     margin-bottom: 20px;
